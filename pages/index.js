@@ -60,7 +60,7 @@ const Home = () => (
     <Carousel />
         <div className="row">
         
-    <MovieList />          
+    <MovieList movies={MOVIE_DATA}/>          
     </div>
       </div>
         </div>
