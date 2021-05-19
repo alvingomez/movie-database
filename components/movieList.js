@@ -2,10 +2,16 @@ import React, {Component} from 'react';
 import { render } from 'react-dom';
 
 class MovieList extends Component {
+  shorten = (text, maxLength) => {      
+    if(text && text.length > maxLength){
+      return text.substr(0, maxLength) + '...'
+    }
+    return text;
+  }  
 
     render(){
-      const {movies} = this.props
-
+      const {movies} = this.props;     
+        
         return(
             <>
             { movies.map((movie) => 
@@ -17,7 +23,7 @@ class MovieList extends Component {
                       <h4 className="card-title">
                         <a href="#">{movie.name}</a>
                       </h4>                      
-                      <p className="card-text">{movie.description}</p>
+                      <p className="card-text">{this.shorten(movie.description, 100)}</p>
                       </div>
                   <div className="card-footer">
                     <small className="text-muted">{movie.rating}</small>
@@ -49,4 +55,6 @@ class MovieList extends Component {
     }
 }
 
-export {MovieList as default}
+
+
+export default MovieList; 
