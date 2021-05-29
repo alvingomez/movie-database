@@ -29,4 +29,10 @@ const MOVIE_DATA = [
   
 ]
 
-export const getMovies = () => MOVIE_DATA;
+export const getMovies = () => {     
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {      
+      return MOVIE_DATA;
+    }, 2000)
+  })
+}
